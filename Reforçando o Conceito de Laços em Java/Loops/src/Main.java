@@ -64,7 +64,7 @@ public class Main {
             if (vez > 5) {
                 continuar = false;
             }
-            
+
             System.out.println("Texto 5 vezes usando Do/While");
             vez = 1;
             do {
