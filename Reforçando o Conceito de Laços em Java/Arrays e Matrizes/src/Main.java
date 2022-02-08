@@ -37,13 +37,20 @@ public class Main {
             }
         }
 
+        for (int a = 0; a < idades.length; a++) {
+            int idade = idades[a];
+            if (idade >= 18) {
+                System.out.println("Idade " + idade + " é maior que 18 anos");
+            }
+        }
+
         long[][] m = new  long[3][3];
 
         char[][] jogo = new char[3][3];
         jogo[0][0] = 'X';
         jogo[2][1] = 'O';
-        System.out.println("Posição 0 " + jogo[0][0]);
-        System.out.println("Posição X " + jogo[2][1]);
+        System.out.println("Posição 0: " + jogo[0][0]);
+        System.out.println("Posição 8: " + jogo[2][1]);
 
         int[][][] n = new int[3][3][3];
         n[0][0][0] = 10;
