@@ -2,7 +2,7 @@ package com.projeto.filas;
 
 public class Fila {
 
-    private No refNoEntradaFila = null;
+    private No refNoEntradaFila;
 
     public Fila() {
         this.refNoEntradaFila = null;
@@ -23,7 +23,7 @@ public class Fila {
                     break;
                 }
             }
-
+            return primeiroNo;
         }
         return null;
     }
