@@ -25,5 +25,31 @@ public class Main {
 
         System.out.println(minhaFila);
 
+        System.out.println();
+        System.out.println("--------------------------------");
+        System.out.println();
+
+        FilaRefatorada <String> minhaFilaRefatorada = new FilaRefatorada<>();
+
+        minhaFilaRefatorada.enqueue("primeiro");
+        minhaFilaRefatorada.enqueue("segundo");
+        minhaFilaRefatorada.enqueue("terceiro");
+        minhaFilaRefatorada.enqueue("quarto");
+
+        System.out.println(minhaFilaRefatorada);
+
+        System.out.println(minhaFilaRefatorada.dequeue());
+
+        System.out.println(minhaFilaRefatorada);
+
+        minhaFilaRefatorada.enqueue("ultimo");
+
+        System.out.println(minhaFila);
+
+        System.out.println(minhaFila.first());
+
+        System.out.println(minhaFila);
+
+
     }
 }

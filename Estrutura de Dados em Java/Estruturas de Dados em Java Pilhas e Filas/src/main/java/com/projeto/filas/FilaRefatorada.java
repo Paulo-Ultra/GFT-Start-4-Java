@@ -1,47 +1,48 @@
 package com.projeto.filas;
 
-public class FilaRefatorada {
-    private No refNoEntradaFila;
+public class FilaRefatorada<T> {
+
+    private NoRefatorado<T> refNoEntradaFila;
 
     public FilaRefatorada() {
         this.refNoEntradaFila = null;
     }
 
-    public void enqueue(Object obj) {
-        No novoNoRef = new No(obj);
+    public void enqueue(T object) {
+        NoRefatorado novoNoRef = new NoRefatorado(object);
         novoNoRef.setRefNo(refNoEntradaFila);
         refNoEntradaFila = novoNoRef;
     }
 
-    public Object first() {
+    public T first() {
         if (!isEmpty()) {
-            No primeiroNo = refNoEntradaFila;
+            NoRefatorado primeiroNo = refNoEntradaFila;
             while (true) {
-                if (primeiroNo.getRefNo() != null) {
-                    primeiroNo = primeiroNo.getRefNo();
+                if (primeiroNo.getRefNoRefatorado() != null) {
+                    primeiroNo = primeiroNo.getRefNoRefatorado();
                 } else {
                     break;
                 }
             }
-            return primeiroNo.getObject();
+            return (T) primeiroNo.getObject();
         }
         return null;
     }
 
-    public Object dequeue() {
+    public T dequeue() {
         if (!isEmpty()) {
-            No primeiroNo = refNoEntradaFila;
-            No noAuxiliar = refNoEntradaFila;
+            NoRefatorado primeiroNo = refNoEntradaFila;
+            NoRefatorado noAuxiliar = refNoEntradaFila;
             while (true) {
-                if (primeiroNo.getRefNo() != null) {
+                if (primeiroNo.getRefNoRefatorado() != null) {
                     noAuxiliar = primeiroNo;
-                    primeiroNo = primeiroNo.getRefNo();
+                    primeiroNo = primeiroNo.getRefNoRefatorado();
                 } else {
                     noAuxiliar.setRefNo(null);
                     break;
                 }
             }
-            return primeiroNo.getObject();
+            return (T) primeiroNo.getObject();
         }
         return null;
     }
@@ -53,13 +54,13 @@ public class FilaRefatorada {
     @Override
     public String toString() {
         String stringRetorno = "";
-        No noAuxiliar = refNoEntradaFila;
+        NoRefatorado noAuxiliar = refNoEntradaFila;
 
         if (refNoEntradaFila != null) {
             while (true) {
                 stringRetorno += "[No{objeto=" + noAuxiliar.getObject() + "}]----->";
-                if (noAuxiliar.getRefNo() != null) {
-                    noAuxiliar = noAuxiliar.getRefNo();
+                if (noAuxiliar.getRefNoRefatorado() != null) {
+                    noAuxiliar = noAuxiliar.getRefNoRefatorado();
                 } else {
                     stringRetorno += "null";
                     break;
