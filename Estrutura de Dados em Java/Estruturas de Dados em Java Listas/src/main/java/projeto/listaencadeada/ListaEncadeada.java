@@ -15,14 +15,28 @@ public class ListaEncadeada <T> {
             return;
         }
 
-        No<T> noAuxliliar = referenciaEntrada;
+        No<T> noAuxiliar = referenciaEntrada;
         for(int i = 0; i < this.size() - 1; i++){
-            noAuxliliar = noAuxliliar.getProximoNo();
+            noAuxiliar = noAuxiliar.getProximoNo();
         }
 
-        noAuxliliar.setProximoNo(novoNo);
+        noAuxiliar.setProximoNo(novoNo);
 
     }
+
+    private No<T> getNo(int index){
+
+        validaIndice(index);
+        No<T> noAuxiliar = referenciaEntrada;
+        No<T> noRetorno = null;
+
+        for(int i = 0; i < this.size() - 1; i++){
+            noRetorno = noAuxiliar;
+            noAuxiliar = noAuxiliar.getProximoNo();
+        }
+        return noRetorno;
+    }
+
 
     public int size(){
         int tamanhoLista = 0;
@@ -41,6 +55,13 @@ public class ListaEncadeada <T> {
         }
 
         return tamanhoLista;
+    }
+
+    private void validaIndice(int index){
+        if(index >= size()){
+            int ultimoIndice = size() - 1;
+            throw new IndexOutOfBoundsException("Não existe conteúdo no índice " + index + " desta lista. Esta lista só vai até o índice " + ultimoIndice + '.');
+        }
     }
 
     public boolean isEmpty(){
