@@ -29,7 +29,7 @@ public class ListaCircular<T> {
 
     public void remove(int index){
         if(index >= this.tamanhoLista)
-        throw new IndexOutOfBoundsException("O índice é maior que o tamanho da lista.")
+        throw new IndexOutOfBoundsException("O índice é maior que o tamanho da lista.");
 
         No<T> noAuxiliar = cauda;
         if(index == 0){
