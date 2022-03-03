@@ -39,6 +39,6 @@ public class Exercicio {
         System.out.println(minhaFila);
 
         System.out.println(minhaFila.contains("Carlos"));
-        
+
     }
 }
